@@ -22,3 +22,15 @@ True
 True
 True
 """
+
+
+array_1 = [1,2,3,4]
+print(id(array_1))
+g1 = (x for x in array_1)
+array_1 = [1,2,3,4,5]
+print(id(array_1))
+"""
+output:
+41768200
+41767048
+"""
