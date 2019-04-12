@@ -1,0 +1,4 @@
+### 解释
+- It is perfectly logical, if you were around when the bool type was added to python (sometime around 2.2 or 2.3).
+
+Prior to introduction of an actual bool type, 0 and 1 were the official representation for truth value, similar to C89. To avoid unnecessarily breaking non-ideal but working code, the new bool type needed to work just like 0 and 1. This goes beyond merely truth value, but all integral operations. No one would recommend using a boolean result in a numeric context, nor would most people recommend testing equality to determine truth value, no one wanted to find out the hard way just how much existing code is that way. Thus the decision to make True and False masquerade as 1 and 0, respectively. This is merely a historical artifact of the linguistic evolution.
