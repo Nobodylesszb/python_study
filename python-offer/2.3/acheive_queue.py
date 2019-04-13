@@ -1,5 +1,5 @@
 class MyQueue(object):
-    def __init__(self,)
+    def __init__(self):
         self.stack = []
         self.stack2 = []
 
