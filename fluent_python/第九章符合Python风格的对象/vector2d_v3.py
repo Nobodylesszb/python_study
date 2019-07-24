@@ -4,9 +4,13 @@
 v3
 
 '''
+"""
+注意。我们让这些向量不可变是有原因的。因为这样才能实现__hash__方法，
+"""
 
 from array import array
 import math
+
 
 
 class Vector2d:
