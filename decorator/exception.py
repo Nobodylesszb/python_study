@@ -1,7 +1,8 @@
 def catch_exception(origin_func):
     def wrapper(self, *args, **kwargs):
         try:
-            u = origin_func(self, *args, **kwargs)
+            # u = origin_func(self, *args, **kwargs)
+            u = origin_func(self,*args, **kwargs)
             return u
         except Exception:
             self.revive() #不用顾虑，直接调用原来的类的方法
@@ -24,3 +25,9 @@ class Test(object):
 
 test = Test()
 test.read_value()
+
+"""
+output：
+here I will do something.
+revive from exception.
+"""
