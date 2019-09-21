@@ -17,7 +17,7 @@ class LineItem:
     weight = Quantity('weight')
     price = Quantity('price')
 
-    def __init__(self, decription, weight, price):x
+    def __init__(self, decription, weight, price):
         self.decription = decription
         self.weight = weight
         self.price = price
