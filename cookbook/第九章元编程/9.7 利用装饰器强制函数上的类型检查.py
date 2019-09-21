@@ -6,11 +6,11 @@
 在演示实际代码前，先说明我们的目标：能对函数参数类型进行断言，类似下面这样：
 """
 
+from functools import wraps
 from inspect import signature
 
-from functools import wraps
-from pandas import DataFrame
 import pandas as pd
+from pandas import DataFrame
 
 def typeassert(*ty_args, **ty_kwargs):
     def decorate(func):
@@ -30,18 +30,20 @@ def typeassert(*ty_args, **ty_kwargs):
                 if name in bound_types:
                     if not isinstance(value, bound_types[name]):
                         raise TypeError(
-                            'Argument {} must be {}'.format(name, bound_types[name])
-                            )
+                            'Argument {} must be {}'.format(
+                                name, bound_types[name])
+                        )
             return func(*args, **kwargs)
         return wrapper
     return decorate
 
-@typeassert(int,z=int)
-def spam(x,y,z=42):
-    print(x,y,z)
+
+@typeassert(int, z=int)
+def spam(x, y, z=42):
+    print(x, y, z)
 
 
-spam(1,2,3)
+spam(1, 2, 3)
 
 
 """
@@ -50,13 +52,13 @@ bind() 跟 bind_partial() 类似，
 但是它不允许忽略任何参数。因此有了下面的结果
 """
 
+
 @typeassert(DataFrame)
 def test(x):
     print(type(x))
     print(x)
 
 
-t= pd.DataFrame()
+t = pd.DataFrame()
 
 print(test(3))
-
