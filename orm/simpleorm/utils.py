@@ -34,6 +34,9 @@ class IntField(Field):
         if not isinstance(value, numbers.Integral):
             raise ValueError("int value need")
 
+    def __delete__(self, instance):
+        del self._value
+
 
 class CharField(Field):
     """
